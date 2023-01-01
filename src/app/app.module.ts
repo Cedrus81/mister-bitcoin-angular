@@ -6,18 +6,24 @@ import { AppComponent } from './app-root/app.component';
 import { HomePage } from './views/home-page/home-page.component';
 import { ContactList } from './cmps/contact-list/contact-list.component';
 import { ContactPageComponent } from './views/contact-page/contact-page.component';
+import { ContactPreviewComponent } from './cmps/contact-preview/contact-preview.component';
+import { ContactFilterComponent } from './cmps/contact-filter/contact-filter.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePage,
     ContactList,
-    ContactPageComponent
+    ContactPageComponent,
+    ContactPreviewComponent,
+    ContactFilterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

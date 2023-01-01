@@ -1,0 +1,12 @@
+:host{
+    max-width: max-content;
+    display: flex;
+    flex-direction: column;
+    background-color: #bbe4e9;
+    border-radius: 1em;
+    padding: 1em;
+    box-shadow: 10px 10px 20px rgba(255, 255, 255, 0.2);
+    img{
+        width: 100%
+    }
+}

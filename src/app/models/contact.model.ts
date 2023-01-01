@@ -12,3 +12,7 @@ export class Contact {
         this._id = id
     }
 }
+
+export class ContactFilter{
+    constructor( public term: string = ''){}
+}
