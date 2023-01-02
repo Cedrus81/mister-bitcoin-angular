@@ -3,5 +3,5 @@
     <button class="btn neutral" [routerLink]="['/contact/edit']">+ Add a Contact</button>
 </header>
 <h1>Your contacts:</h1>
-<contact-list [contacts]="contacts$ | async"></contact-list>
+<contact-list [contacts]="contacts$ | async" (onRemove)="onRemoveContact($event)"></contact-list>
 <router-outlet></router-outlet>

@@ -1,2 +1,3 @@
-<!-- <h1>Welcome, {{user$?.name || 'Guest'}}</h1> -->
-<line-chart *ngIf="marketPrices" [marketPrices]="marketPrices"></line-chart>
+<h1 *ngIf="user$ | async as user">Welcome, {{user.name || 'Guest'}}</h1>
+<line-chart *ngIf="isChartData" [marketPrices]="marketPrices"></line-chart>
+{{marketPrices}}

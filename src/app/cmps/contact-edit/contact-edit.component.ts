@@ -24,20 +24,16 @@ export class ContactEditComponent implements OnInit {
     this.subscription = this.route.data.subscribe(({contact}) => 
     {this.contact = contact || this.contactService.getEmptyContact() as Contact}
     )
-    const {name,phone,email} = this.contact
-    console.log('contact: ', this.contact);
+    const {name,phone,email,_id} = this.contact
     this.form = this.fb.group({
+      _id,
       name: [name,[Validators.required]],
       phone: [phone,[Validators.required]],
       email: [email,[Validators.required]]
     })
-    console.log('form: ', this.form.value)
 }
 
   onSubmit(form: object) {
-    // console.log('this.first:', this.first)
-    // console.log('form.value:', form.value)
-    console.log(form)
     this.contactService.saveContact(form as Contact)
     this.router.navigateByUrl('/contact')
 }

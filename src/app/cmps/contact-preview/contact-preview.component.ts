@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Contact } from 'src/app/models/contact.model';
 
 @Component({
@@ -8,5 +8,9 @@ import { Contact } from 'src/app/models/contact.model';
 })
 export class ContactPreviewComponent {
  @Input() contact!: Contact
- 
+ @Output() onRemove = new EventEmitter<string>()
+ onRemoveContact(ev: MouseEvent) {
+  ev.stopPropagation()
+  this.onRemove.emit(this.contact._id)
+}
 }

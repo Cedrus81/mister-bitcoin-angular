@@ -1,4 +1,7 @@
 <contact-preview *ngIf="contact" [contact]="contact"></contact-preview>
-<button class="btn neutral" (click)="onBack()">
-    Back
-</button>
+<section class="contact-options flex justify-between">
+    <button class="btn neutral" (click)="onBack()">
+        Back
+    </button>
+    <button *ngIf="contact" class="neutral btn" [routerLink]="['/contact/edit', contact._id]">Edit</button>
+</section>

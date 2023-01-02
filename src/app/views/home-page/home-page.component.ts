@@ -10,17 +10,29 @@ import { BitcoinService } from 'src/app/services/bitcoin.service';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePage{
-  constructor(private bitcoinService: BitcoinService, private userService: UserService) {}
-  
-  marketPrices!:ChartData | null
+  marketPrices!:ChartData
   user$!: Observable<User>
+  isChartData:boolean = false
+  subscription!: Subscription
+  constructor(private bitcoinService: BitcoinService, private userService: UserService) {
+    // this.marketPrices = this.bitcoinService.chartData$
 
-  async ngOnInit(): Promise<void> {
-    this.marketPrices = await this.bitcoinService.getMarketPrices()
-    this.userService.getUser()
-    this.user$ = this.userService.loggedInUser$
   }
 
+
+
+  async ngOnInit(): Promise<void> {
+    await this.bitcoinService.getMarketPrices()
+    this.userService.getUser()
+    this.user$ = this.userService.loggedInUser$
+    this.subscription = this.bitcoinService.chartData$.subscribe(data => {
+      this.marketPrices = data
+  })
+    this.isChartData = true
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe()
+  }
 
 
     
