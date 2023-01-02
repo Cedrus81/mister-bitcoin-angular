@@ -13,8 +13,8 @@ import { NgChartsModule } from 'ng2-charts';
 import { LineChartComponent } from './cmps/charts/charts.component';
 import { AppHeaderComponent } from './cmps/app-header/app-header.component';
 import { ContactDetailsComponent } from './cmps/contact-details/contact-details.component';
-import { ContactEditComponent } from './contact-edit/contact-edit.component';
-
+import { ContactEditComponent } from './cmps/contact-edit/contact-edit.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +33,7 @@ import { ContactEditComponent } from './contact-edit/contact-edit.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     NgChartsModule
   ],
   providers: [],

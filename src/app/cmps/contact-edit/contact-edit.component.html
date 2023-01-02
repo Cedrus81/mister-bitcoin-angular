@@ -1,0 +1,12 @@
+<div class="modal-screen on">
+    <section class="edit-modal flex column">
+        <img class="close-modal" (click)="onBack()" src="../../../assets/icon-close.png" alt="">
+        <h2>Edit:</h2>
+        <form [formGroup]="form" class="flex column" (ngSubmit)="onSubmit(form.value)">
+            <input type="text" placeholder="name" formControlName="name">
+            <input type="text" placeholder="phone" formControlName="phone">
+            <input type="text" placeholder="email" formControlName="email">
+            <button class="btn neutral" [disabled]="form.invalid" type="submit">Save</button>
+        </form>
+    </section>
+</div>

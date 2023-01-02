@@ -1,6 +1,7 @@
 <header class="contact-page-header flex justify-between">
     <contact-filter></contact-filter>
-    <button class="btn neutral">+ Add a Contact</button>
+    <button class="btn neutral" [routerLink]="['/contact/edit']">+ Add a Contact</button>
 </header>
 <h1>Your contacts:</h1>
 <contact-list [contacts]="contacts$ | async"></contact-list>
+<router-outlet></router-outlet>
