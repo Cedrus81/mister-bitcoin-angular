@@ -7,7 +7,7 @@ import { Contact } from 'src/app/models/contact.model';
   styleUrls: ['./contact-list.component.scss']
 })
 export class ContactList{
-  @Input() contacts!: Contact[]
+  @Input() contacts!: Contact[] | null
   @Output() onSelect = new EventEmitter<string>()
     @Output() onRemove = new EventEmitter<string>()
 }

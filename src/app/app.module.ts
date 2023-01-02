@@ -9,6 +9,11 @@ import { ContactPageComponent } from './views/contact-page/contact-page.componen
 import { ContactPreviewComponent } from './cmps/contact-preview/contact-preview.component';
 import { ContactFilterComponent } from './cmps/contact-filter/contact-filter.component';
 import { FormsModule } from '@angular/forms';
+import { NgChartsModule } from 'ng2-charts';
+import { LineChartComponent } from './cmps/charts/charts.component';
+import { AppHeaderComponent } from './cmps/app-header/app-header.component';
+import { ContactDetailsComponent } from './cmps/contact-details/contact-details.component';
+import { ContactEditComponent } from './contact-edit/contact-edit.component';
 
 @NgModule({
   declarations: [
@@ -17,13 +22,18 @@ import { FormsModule } from '@angular/forms';
     ContactList,
     ContactPageComponent,
     ContactPreviewComponent,
-    ContactFilterComponent
+    ContactFilterComponent,
+    LineChartComponent,
+    AppHeaderComponent,
+    ContactDetailsComponent,
+    ContactEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

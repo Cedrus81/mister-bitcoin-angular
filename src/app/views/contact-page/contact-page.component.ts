@@ -10,15 +10,15 @@ import { ContactService } from 'src/app/services/contact.service';
 export class ContactPageComponent implements OnInit {
   constructor(private contactService: ContactService) { }
 
-  // contacts$!: Observable<Contact[] | null>
-  contacts!: Contact[]
+  contacts$!: Observable<Contact[]>
+  // contacts!: Contact[]
   subscription!: Subscription
 
   ngOnInit(): void {
     this.contactService.loadContacts()
-    this.subscription = this.contactService.contacts$.subscribe(contacts => {
-      this.contacts = contacts
-  })
-    // this.contacts$ = this.contactService.contacts$
+    // this.subscription = this.contactService.contacts$.subscribe(contacts => {
+      // this.contacts = contacts
+  // })
+    this.contacts$ = this.contactService.contacts$
    }
 }
