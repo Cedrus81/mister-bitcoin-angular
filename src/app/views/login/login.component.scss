@@ -1,0 +1,24 @@
+:host{
+    .login-page{
+        background-size: cover;
+        background-image: url('../../../assets/bitcoin-background.jpg');
+        height: 84.5vh;
+        h1{
+            font-size: 24px;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        .login-container{
+            margin: 2em;
+            padding: 2em;
+            border-radius: 1em;
+            background-color: #ececec;
+            box-shadow: 10px 10px 20px rgb(0 0 0 / 50%);
+            height: max-content;
+            .login{
+                gap: 0.6em;
+            }
+        }
+    }
+}

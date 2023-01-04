@@ -23,7 +23,6 @@ export class HomePage{
 
   async ngOnInit(): Promise<void> {
     await this.bitcoinService.getMarketPrices()
-    this.userService.getUser()
     this.user$ = this.userService.loggedInUser$
     this.subscription = this.bitcoinService.chartData$.subscribe(data => {
       this.marketPrices = data

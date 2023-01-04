@@ -18,25 +18,27 @@ export class ContactEditComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private fb: FormBuilder,
-  ) { }
+  ) {
+    this.form = this.fb.group({
+      name: ['', [Validators.required]],
+      phone: ['', [Validators.required]],
+      email: ['', [Validators.required]]
+  })
+   }
   
   ngOnInit(): void {
-    this.subscription = this.route.data.subscribe(({contact}) => 
-    {this.contact = contact || this.contactService.getEmptyContact() as Contact}
-    )
-    const {name,phone,email,_id} = this.contact
-    this.form = this.fb.group({
-      _id,
-      name: [name,[Validators.required]],
-      phone: [phone,[Validators.required]],
-      email: [email,[Validators.required]]
-    })
+    this.subscription = this.route.data.subscribe(({ contact }) => {
+      this.contact = contact
+      console.log(contact)
+      this.form.patchValue(this.contact)
+  })
 }
 
-  onSubmit(form: object) {
-    this.contactService.saveContact(form as Contact)
-    this.router.navigateByUrl('/contact')
-}
+  onSubmit() {
+    const contact: Contact = { ...this.contact, ...this.form.value }
+        this.contactService.saveContact(contact)
+        this.router.navigateByUrl('/contact')
+  } 
 
   onBack() {
     this.router.navigateByUrl('/contact')

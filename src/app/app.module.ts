@@ -15,6 +15,7 @@ import { AppHeaderComponent } from './cmps/app-header/app-header.component';
 import { ContactDetailsComponent } from './cmps/contact-details/contact-details.component';
 import { ContactEditComponent } from './cmps/contact-edit/contact-edit.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './views/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     LineChartComponent,
     AppHeaderComponent,
     ContactDetailsComponent,
-    ContactEditComponent
+    ContactEditComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
