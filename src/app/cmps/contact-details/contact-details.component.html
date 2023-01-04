@@ -1,7 +1,27 @@
-<contact-preview *ngIf="contact" [contact]="contact"></contact-preview>
-<section class="contact-options flex justify-between">
-    <button class="btn neutral" (click)="onBack()">
-        Back
-    </button>
-    <button *ngIf="contact" class="neutral btn" [routerLink]="['/contact/edit', contact._id]">Edit</button>
+<section class="user-details">
+    <contact-preview *ngIf="contact" [contact]="contact" (onRemove)="onRemove($event)"></contact-preview>
+    <section class="contact-options flex justify-between">
+        <button class="btn neutral" (click)="onBack()">
+            Back
+        </button>
+        <button *ngIf="contact" class="neutral btn" [routerLink]="['/contact', contact._id, 'edit']">Edit</button>
+    </section>
 </section>
+<section class="transactions flex column">
+    <div class="add-transaction">
+        <h1>Send money to {{contact?.name}}</h1>
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+            <input ngModel type="number" name="amount">
+            <button class="btn neutral" type="submit">Send</button>
+        </form>
+    </div>
+    <ul *ngIf="user$ |async as user" class="transaction-list">
+        <h3>{{contact?.name}}'s transaction history:</h3>
+        <li *ngFor="let transaction of user.transactions">
+            <p>{{transaction.amount}}</p>
+            <p>{{timeSince(transaction.at)}}</p>
+        </li>
+    </ul>
+</section>
+
+<router-outlet></router-outlet>

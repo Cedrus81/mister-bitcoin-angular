@@ -11,14 +11,11 @@ import { UserService } from '../services/user.service';
 export class AppComponent implements OnInit{
   title = 'mister-bitcoin';
   constructor(private userService: UserService){}
-  // user$!: Observable<User>
   user!: User
   subscription!: Subscription
 
   ngOnInit(): void{
-    // this.userService.getUser()
-    // this.user$ = this.userService.loggedInUser$
-    // console.log(this.user$);
+    this.userService.loadUsers()
     this.subscription = this.userService.loggedInUser$.subscribe(user => {
             this.user = user
         })
